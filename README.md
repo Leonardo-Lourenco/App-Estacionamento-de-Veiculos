@@ -1,1 +1,1 @@
-# App controle de entrada e saídas de veúculos com Vue JS
+# App controle de entrada e saída de veiculos com Vue JS
