@@ -1,6 +1,9 @@
 <template>
     
-    <p> Sistema de Estacionamento 2021 - Coffee Tag </p>
+    <footer id="footer">
+         <p> Sistema de Estacionamento 2021 &copy; - Coffee Tag </p>
+
+    </footer>     
 
 </template>
 
@@ -15,5 +18,15 @@
 </script>
 
 <style scoped>
+
+    #footer{
+        height: 200px;
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 
 </style>
