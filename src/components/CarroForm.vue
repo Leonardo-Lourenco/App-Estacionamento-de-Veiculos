@@ -3,7 +3,9 @@
 
         <div>
 
-            <div id="carro-form">
+
+
+            <form id="carro-form" @submit="createCarro">
 
                 <div class="input-container">
 
@@ -46,7 +48,7 @@
 
 
 
-            </div>
+            </form>
 
 
 
@@ -70,7 +72,64 @@
 
 
     export default {
-        name: "CarroForm"
+        name: "CarroForm",
+
+        data() {
+
+            return {
+
+                nome: null,
+                nomeCarro: null,
+                placaCarro: null,
+                hora: null,
+                msg: null
+
+            }
+        },
+
+        methods: {
+
+            async createCarro(e){
+
+                e.preventDefault();
+
+                // console.log("Carro cadastrado com Sucesso");
+
+
+                const data = {
+                    nome: this.nome,
+                    nomeCarro: this.nomeCarro,
+                    placaCarro: this.placaCarro,
+                    hora: this.hora,
+                    status: "Solicitado",
+                }
+
+                // console.log(data);
+
+                const dataJson = JSON.stringify(data);
+
+
+                // Fazendo um POST
+
+                const req = await fetch("http://localhost:3000/carros", {
+                    method: "POST",
+                    headers: { "Content-Type" : "application/json"},
+                    body: dataJson
+                });
+
+                const res = await req.json();
+
+                console.log(res);
+
+
+                // Limpara campos
+
+                this.nome = "";
+                this.nomeCarro = "";
+                this.placaCarro = "";
+                this.hora = "";
+            }
+        }
     }
 
 </script>

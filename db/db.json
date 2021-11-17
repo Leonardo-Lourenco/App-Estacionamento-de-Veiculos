@@ -1,16 +1,38 @@
-{ 
-
-    "status": [
-        {
-          "id": 1,
-          "tipo": "Solicitado"
-        },
-        {
-          "id": 2,
-          "tipo": "Finalizado"
-        }
-      ],
-
-    "carros" : []  
-
+{
+  "status": [
+    {
+      "id": 1,
+      "tipo": "Solicitado"
+    },
+    {
+      "id": 2,
+      "tipo": "Finalizado"
+    }
+  ],
+  "carros": [
+    {
+      "nome": "Leonardo Coffee Tag",
+      "nomeCarro": "Ferrari",
+      "placaCarro": "NGB-5874",
+      "hora": "12:20",
+      "status": "Solicitado",
+      "id": 1
+    },
+    {
+      "nome": "Leo Teste",
+      "nomeCarro": "Vectra",
+      "placaCarro": "HER-1212",
+      "hora": "12:20",
+      "status": "Solicitado",
+      "id": 2
+    },
+    {
+      "nome": "Coffee Tag  aULAO",
+      "nomeCarro": "Fusca",
+      "placaCarro": "BNF-9878",
+      "hora": "19:00",
+      "status": "Solicitado",
+      "id": 3
+    }
+  ]
 }
