@@ -3,6 +3,8 @@
 
         <div>
 
+            <Mensagem :msg="msg" v-show="msg" />
+
 
 
             <form id="carro-form" @submit="createCarro">
@@ -70,6 +72,8 @@
 
 <script>
 
+    import Mensagem from './Mensagem.vue';
+
 
     export default {
         name: "CarroForm",
@@ -121,6 +125,14 @@
 
                 console.log(res);
 
+            //  Mensagem de cadastro de carro
+            this.msg = ` Carro cadastrado com Sucesso. Obrigado!`;
+
+            // Limpar a Mensagem após um tempo
+            setTimeout(() => this.msg = "", 3000)
+
+
+
 
                 // Limpara campos
 
@@ -129,6 +141,10 @@
                 this.placaCarro = "";
                 this.hora = "";
             }
+        },
+
+        components: {
+            Mensagem
         }
     }
 
