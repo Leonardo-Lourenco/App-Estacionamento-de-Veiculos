@@ -20,7 +20,7 @@
 <style scoped>
 
     #footer{
-        height: 80px;
+        height: 150px;
         background-color: black;
         color: white;
         display: flex;

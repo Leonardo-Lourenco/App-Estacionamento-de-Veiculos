@@ -24,19 +24,20 @@
 
       <div id="carro-table-rows">
 
-          <div class="carro-table-row">
+          <div class="carro-table-row" v-for="carro in carros" :key="carro.id" >
 
 
-              <div class="order-number">1</div>
-              <div> Leo </div>
-              <div>Corsa: </div>
-              <div> GTY-5876: </div>
-              <div> 08:00 </div>
+              <div class="order-number"> {{ carro_id }}</div>
+              <div> {{ carro.nome }} </div>
+              <div> {{ carro.nomeCarro }} </div>
+              <div> {{ carro.nplacaCarro }} </div>
+              <div> {{ carro.hora }} </div>
 
               <div>
 
                   <select name="status" class="status">
                       <option value="">Status Carro </option>
+                       <option value="statu.tipo" v-for="statu in status" :key="statu.id"> {{ statu.tipo }} </option>
                   </select>
 
                   <button class="delete-btn" > Deletar</button>
@@ -56,7 +57,50 @@
 <script>
 
     export default {
-        name: "Dashboard"
+        name: "Dashboard",
+
+        data() {
+            return {
+                carros: null,
+                carros_id: null,
+                status: []
+            }
+        },
+
+        // Carregar os Carros 
+
+        methods: {
+
+            async getCadastros() {
+
+                const req = await fetch("http://localhost:3000/carros");
+
+                const data = await req.json();
+
+                this.carros = data;
+
+                this.getSatus();
+
+            },
+
+            async getStatus() {
+
+                const req = await fetch("http://localhost:3000/status");
+
+                const data = await req.json();
+
+                this.status = data;
+
+            }
+            
+        },
+
+        mounted() {
+
+            this.getCadastros();
+        }
+
+
     }
 
 
