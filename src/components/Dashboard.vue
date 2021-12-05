@@ -27,10 +27,10 @@
           <div class="carro-table-row" v-for="carro in carros" :key="carro.id" >
 
 
-              <div class="order-number"> {{ carro_id }}</div>
+              <div class="order-number"> {{ carro.id }}</div>
               <div> {{ carro.nome }} </div>
               <div> {{ carro.nomeCarro }} </div>
-              <div> {{ carro.nplacaCarro }} </div>
+              <div> {{ carro.placaCarro }} </div>
               <div> {{ carro.hora }} </div>
 
               <div>
@@ -40,7 +40,7 @@
                        <option value="statu.tipo" v-for="statu in status" :key="statu.id"> {{ statu.tipo }} </option>
                   </select>
 
-                  <button class="delete-btn" > Deletar</button>
+                  <button class="delete-btn" @click="deletarCarro(carro.id)"> Deletar</button>
 
 
               </div>
@@ -79,7 +79,7 @@
 
                 this.carros = data;
 
-                this.getSatus();
+                this.getStatus();
 
             },
 
@@ -90,6 +90,19 @@
                 const data = await req.json();
 
                 this.status = data;
+            },
+
+            async deletarCarro(id) {
+
+                const req  = await fetch(`http://localhost:3000/carros/${id}`, {
+                    method: "DELETE"
+
+                });
+
+                const data = await req.json();
+
+                this.getCadastros();
+
 
             }
             
