@@ -1,13 +1,23 @@
-# Aplicação para Estacioamento - Cadastros e Exclusão de Veículos
+# Aplicação para Estaciomento - Cadastros e Exclusão de Veículos
 
-## Project setup
+## Instalar Node JS
 ```
-npm install
+npm install node
 ```
 
-### Compiles and hot-reloads for development
+## Instalar Vue JS
+```
+npm install vue
+```
+
+### Rodar o Projeto
 ```
 npm run serve
+```
+
+### Rodar o JSON Server
+```
+npm run backend
 ```
 
 ### Compiles and minifies for production
