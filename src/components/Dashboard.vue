@@ -3,6 +3,8 @@
 
   <div id="carro-table">
 
+      <Mensagem :msg="msg" v-show="msg" />
+
       <div>
 
 
@@ -35,9 +37,9 @@
 
               <div>
 
-                  <select name="status" class="status">
+                  <select name="status" class="status"  @change="updateCarro($event, carro.id)">
                       <option value="">Status Carro </option>
-                       <option value="statu.tipo" v-for="statu in status" :key="statu.id"> {{ statu.tipo }} </option>
+                       <option :value="statu.tipo" v-for="statu in status" :key="statu.id" :selected="carro.status == statu.tipo"> {{ statu.tipo }} </option>
                   </select>
 
                   <button class="delete-btn" @click="deletarCarro(carro.id)"> Deletar</button>
@@ -56,6 +58,8 @@
     
 <script>
 
+     import Mensagem from './Mensagem.vue';
+
     export default {
         name: "Dashboard",
 
@@ -63,8 +67,16 @@
             return {
                 carros: null,
                 carros_id: null,
-                status: []
+                status: [],
+                msg : null
             }
+        },
+
+        // compkent mensagem
+
+        components : {
+
+            Mensagem
         },
 
         // Carregar os Carros 
@@ -101,8 +113,45 @@
 
                 const data = await req.json();
 
+
+                 //  Mensagem de cadastro de carro
+               this.msg = `Carro DELETADO com sucesso. Obrigado `;
+
+                // Limpar a Mensagem após um tempo
+                setTimeout(() => this.msg = "", 3000)
+
                 this.getCadastros();
 
+
+            },
+
+            // Atualizando o status do CARRO
+
+            async updateCarro(event, id){
+
+                const opcoes = event.target.value;
+
+                const dataJson = JSON.stringify({ status: opcoes }); // pega o ID do STATUS e CARROS
+
+                const req =  await fetch(`http://localhost:3000/carros/${id}`, {
+                    method: "PATCH", // atualiza somente o ID do STATUS
+                    headers: { "Content-Type" : "application/json" },
+                    body: dataJson
+                });
+
+                const res = await req.json();
+
+
+                 //  Mensagem de cadastro de carro
+               this.msg = `Carro do: ${res.nome} foi atualizado para ${res.status} . Obrigado `;
+
+                // Limpar a Mensagem após um tempo
+                setTimeout(() => this.msg = "", 3000)
+
+
+                console.log(res);
+
+                
 
             }
             
