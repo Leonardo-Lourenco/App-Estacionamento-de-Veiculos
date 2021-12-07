@@ -20,10 +20,9 @@ npm run serve
 npm run backend
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
+### Documentação Vue JS
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Documentação Node JS
+See [Configuration Reference](https://nodejs.org/en/).
