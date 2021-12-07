@@ -27,5 +27,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Documentação Node JS
 See [Configuration Reference](https://nodejs.org/en/).
 
-### Projeto passo a pasos YouTube
-See [Configuration Reference](https://www.youtube.com/watch?v=bu5GFKrqWWc&list=PLFYSYBoGvrksWwhDWeCPj9SWFhjKHPfcM).
+### Projeto passo a passo YouTube
+See [Assistir as Vídeo Aulas](https://www.youtube.com/watch?v=bu5GFKrqWWc&list=PLFYSYBoGvrksWwhDWeCPj9SWFhjKHPfcM).
